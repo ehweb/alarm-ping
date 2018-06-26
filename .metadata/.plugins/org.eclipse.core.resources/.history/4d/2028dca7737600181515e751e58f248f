@@ -1,0 +1,68 @@
+package container;
+
+import javax.swing.*;
+import java.awt.*;
+ 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Date;
+ 
+
+
+
+public class Principal {
+	///establecemos los tiempos de ping
+	
+	public int tbusqueda = 15 ; /// minutos de delay para busqueda 
+
+	public static void main(String[] args) throws IOException {
+		//
+		Principal prm= new Principal();
+		//prm.capturaDominio();
+		prm.verf();
+
+	}
+	
+	
+	public static boolean pingHost(String host, int port, int timeout) {
+	    try (Socket socket = new Socket()) {
+	        socket.connect(new InetSocketAddress(host, port), timeout);
+	        return true;
+	    } catch (IOException e) {
+	        return false; // Either timeout or unreachable or failed DNS lookup.
+	    }
+	}
+	
+	
+	public void verf() throws IOException {
+		 	InetAddress[] addresses = InetAddress.getAllByName("www.google.com");
+		 	for (InetAddress address : addresses) {
+		        if (address.isReachable(10000))
+		        {   
+		           System.out.println("Connected "+ address);
+		        }
+		        else
+		        {
+		           System.out.println("Failed "+address);
+		        }
+		      }
+		       
+	}
+	
+	
+	
+	public void capturaDominio() {
+		String nombre;		
+		nombre = JOptionPane.showInputDialog("Dominio a verificar");		
+		JOptionPane.showMessageDialog(null, nombre);		
+	}
+	
+	
+	///metodo para verificar un dominio o ip determinado
+		
+
+}

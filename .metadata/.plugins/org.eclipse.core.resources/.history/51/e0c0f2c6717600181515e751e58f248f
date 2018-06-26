@@ -1,0 +1,32 @@
+package container;
+
+import javax.swing.*;
+import java.awt.*;
+
+
+public class Principal {
+	///establecemos los tiempos de ping
+	
+	public int tbusqueda = 15 ; /// minutos de delay para busqueda 
+
+	public static void main(String[] args) {
+		//
+		Principal prm= new Principal();
+		prm.capturaDominio();
+
+	}
+	
+	
+	public static void capturaDominio() {
+		String nombre;		
+		nombre = JOptionPane.showInputDialog("Dominio a verificar");		
+		JOptionPane.showMessageDialog(null, nombre);		
+	}
+	
+	
+	
+	 
+	
+	
+
+}

@@ -1,0 +1,104 @@
+package container;
+
+import javax.swing.*;
+import java.awt.*;
+ 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Date;
+ 
+
+
+
+public class Principal {
+	///establecemos los tiempos de ping
+	
+	public int tbusqueda = 15 ; /// minutos de delay para busqueda 
+
+	public static void main(String[] args) throws IOException {
+		//
+		Principal prm= new Principal();
+		prm.capturaDominio();
+		prm.verf("www.google.com");
+
+	}
+	
+	
+	public static boolean pingHost(String host, int port, int timeout) {
+	    try (Socket socket = new Socket()) {
+	        socket.connect(new InetSocketAddress(host, port), timeout);
+	        return true;
+	    } catch (IOException e) {
+	        return false; // Either timeout or unreachable or failed DNS lookup.
+	    }
+	}
+	
+	
+	public Integer verf(String domain) throws IOException {
+		int verfs=0;
+		InetAddress[] addresses = InetAddress.getAllByName(domain);
+		for (InetAddress address : addresses) 
+		{
+			if (address.isReachable(10000)){   
+				verfs=1;
+		    }else{
+		    	verfs=0;
+		    }
+		}		 	
+		return verfs;			 		       
+	}
+	
+	
+	public Integer verf2(String domain){
+		int verfs=0;
+		try{
+			InetAddress[] addresses = InetAddress.getAllByName(domain);
+			for (InetAddress address : addresses) 
+			{
+				if (address.isReachable(10000)){   
+					verfs=1;
+			    }else{
+			    	verfs=0;
+			    }
+			}		 	
+			
+		}catch(IOException ex){
+			verfs = 0; ///sitio sin linea
+		}
+				
+		return verfs;
+		
+	}
+	
+	
+	
+	public void capturaDominio() throws IOException {
+		String nombre;		
+		nombre = JOptionPane.showInputDialog("Dominio a verificar");
+		////verificamos si el dominio/ip tiene conexion
+		int a = verf2(nombre);
+		if(a>0) {
+			JOptionPane.showMessageDialog(null, nombre+" En linea");
+			
+		}else {
+			JOptionPane.showMessageDialog(null, nombre+" FUERA DE LINEA","Warning",JOptionPane.ERROR_MESSAGE);
+		}
+	}
+		
+		
+			
+		
+
+	
+	
+	///metodo para verificar un dominio o ip determinado
+		
+
+}

@@ -1,0 +1,29 @@
+package container;
+
+import javax.swing.*;
+import java.awt.*;
+
+
+public class Principal {
+
+	public static void main(String[] args) {
+		//
+		Principal prm= new Principal();
+		prm.capturaDominio();
+
+	}
+	
+	
+	public static void capturaDominio() {
+		String nombre;		
+		nombre = JOptionPane.showInputDialog("Dominio a verificar");		
+		JOptionPane.showMessageDialog(null, nombre);		
+	}
+	
+	
+	
+	 
+	
+	
+
+}

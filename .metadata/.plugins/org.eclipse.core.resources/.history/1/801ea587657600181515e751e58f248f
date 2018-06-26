@@ -1,0 +1,17 @@
+package container;
+
+import javax.swing.*;
+import java.awt.*;
+
+
+public class Principal {
+
+	public static void main(String[] args) {
+		// 
+
+		JOptionPane.showMessageDialog(null, "Prueba de Servidores");
+		
+
+	}
+
+}

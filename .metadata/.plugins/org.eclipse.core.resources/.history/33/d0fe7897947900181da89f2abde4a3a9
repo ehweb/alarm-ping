@@ -1,0 +1,17 @@
+package container;
+
+public class Cheker {
+
+	
+	public Cheker() {
+		System.out.println("Aqui se ejecutan las tareas de verificacion");
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Aqui se ejecutan las tareas de verificacion");
+		
+		
+	}
+
+}
