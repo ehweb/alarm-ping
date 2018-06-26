@@ -1,0 +1,2 @@
+Este es un Programa de EspecialistasHosting que permite el monitore(ping) de dominios y
+servidores, de forma manual y forma automatica
